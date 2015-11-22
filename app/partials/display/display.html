@@ -1,0 +1,153 @@
+<div class="display-module" ng-controller="displayCtrl">
+    <!--<p class="display-recentTime">最近时间: <span class="time-tab">{{displayData.data.time | date:'yyyy-MM-dd HH:mm:ss'}}</span></p>-->
+    <div class="select-container clearfix">
+        <div class="area-select select-item" base-droplist>
+            <div class="default-item">{{Area}} <span class="icon icon-chevron-down"></span></div>
+            <ul class="dropdown-menu">
+                <li ng-repeat="item in ['1号采集点', '2号采集点', '3号采集点', '4号采集点']" ng-click="selectArea(item)">{{item}}</li>
+            </ul>
+        </div>
+        <!--<div class="display-select select-item" base-droplist>
+            <div class="default-item">{{selectedItem}} <span class="icon icon-chevron-down"></span></div>
+            <ul class="dropdown-menu">
+                <li ng-repeat="item in ['水分', '电压', '水表', '阀门状态']" ng-click="selectItem(item)">{{item}}</li>
+            </ul>
+        </div>-->
+        <div class="search-btn select-item" ng-click="searchData()">搜索 <span class="icon icon-search"></span></div>
+    </div>
+    <!--<div class="panel-body" chart-two ng-if="selectedItem !== '阀门状态'">
+
+    </div>-->
+    <div class="display-container ">
+        <div class="container-box clearfix">
+            <div class="box">
+                <div class="item-header">水分</div>
+                <div class="item-time">最近时间: {{dataList.moisture.time | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+                <div class="item-row" ng-repeat="item in dataList.moisture.categoriesAndId[1] track by $index">
+                    <div class="item">{{$index + 1}}号水分</div>
+                    <div class="item">{{ item | limitTo: 4}}%</div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="item-header">电压</div>
+                <div class="item-time">最近时间 {{dataList.voltage.time | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+                <div class="item-row" ng-repeat="item in dataList.voltage.categoriesAndId[1] track by $index">
+                    <div class="item">{{$index + 1}}号电压</div>
+                    <div class="item">{{item | limitTo: 4}}V</div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="item-header">水表</div>
+                <div class="item-time">最近时间 {{dataList.wateramount.time | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+                <div class="item-row" ng-repeat="item in dataList.wateramount.categoriesAndId[1] track by $index">
+                    <div class="item">{{$index + 1}}水表</div>
+                    <div class="item">{{item | limitTo: 4}}</div>
+                </div>
+                <div class="item-header">阀门状态</div>
+                <div class="item-time">最近时间 {{dataList.valve[0].time | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+                <div class="item-row">
+                    <div class="item">阀门1号</div>
+                    <div class="item">
+                        <div>开{{dateList.valve[0].states1}}</div>
+                    </div>
+                </div>
+                <div class="item-row">
+                    <div class="item">阀门2号</div>
+                    <div class="item">开{{dateList.valve[0].states2}}</div>
+                </div>
+                <div class="item-row">
+                    <div class="item">阀门3号</div>
+                    <div class="item">开{{dateList.valve[0].states3}}</div>
+                </div>
+                <div class="item-row">
+                    <div class="item">阀门4号</div>
+                    <div class="item">开{{dateList.valve[0].states4}}</div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="container-box clearfix">
+            <div class="box">
+                <div class="item-header">水表</div>
+                <div class="item-time">最近时间 {{dataList.wateramount.time | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+                <div class="item-row" ng-repeat="item in dataList.wateramount.categoriesAndId[1] track by $index">
+                    <div class="item">{{$index + 1}}水表</div>
+                    <div class="item">{{item | limitTo: 4}}</div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="item-header">阀门状态</div>
+                <div class="item-time">最近时间 {{dataList.valve[0].time | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+                <div class="item-row">
+                    <div class="item">阀门1号</div>
+                    <div class="item">
+                        <div>开{{dateList.valve[0].states1}}</div>
+                    </div>
+                </div>
+                <div class="item-row">
+                    <div class="item">阀门2号</div>
+                    <div class="item">开{{dateList.valve[0].states2}}</div>
+                </div>
+                <div class="item-row">
+                    <div class="item">阀门3号</div>
+                    <div class="item">开{{dateList.valve[0].states3}}</div>
+                </div>
+                <div class="item-row">
+                    <div class="item">阀门4号</div>
+                    <div class="item">开{{dateList.valve[0].states4}}</div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+    <!--<div class="display-legends legend-one" ng-show="selectedItem === '电压和水分'">
+        <p><span class="legend-icon"></span>s11 &#45;&#45; s18 代表1号采集区域的8个传感器</p>
+        <p><span class="legend-icon"></span>s21 &#45;&#45; s28 代表2号采集区域的8个传感器</p>
+        <p><span class="legend-icon"></span>s31 &#45;&#45; s38 代表3号采集区域的8个传感器</p>
+    </div>
+    <div class="display-legends legend-two" ng-show="selectedItem === '水表'">
+        <p><span class="legend-icon"></span>m11 &#45;&#45; m14 代表1号采集区域的4个水表</p>
+        <p><span class="legend-icon"></span>m21 &#45;&#45; m24 代表2号采集区域的4个水表</p>
+        <p><span class="legend-icon"></span>m31 &#45;&#45; m34 代表3号采集区域的4个水表</p>
+    </div>
+    <div class="display-valve" ng-if="selectedItem === '阀门状态'">
+        <div class="valve-container">
+            <div class="valve-item">
+                <div class="item-header">1号采集器</div>
+                <div class="item-body">
+                    <ul>
+                        <li>1号阀门:<span></span></li>
+                        <li>4号阀门:<span></span></li>
+                        <li>5号阀门:<span></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="valve-item">
+                <div class="item-header">2号采集器</div>
+                <div class="item-body">
+                    <ul>
+                        <li>8号阀门:<span></span></li>
+                        <li>9号阀门:<span></span></li>
+                        <li>10号阀门:<span></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="valve-item">
+                <div class="item-header">3号采集器</div>
+                <div class="item-body">
+                    <ul>
+                        <li>3号阀门:<span></span></li>
+                        <li>6号阀门:<span></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="valve-item">
+                <div class="item-header">4号采集器</div>
+                <div class="item-body">
+                    <ul>
+                        <li>2号阀门:<span></span></li>
+                        <li>7号阀门:<span></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</div>

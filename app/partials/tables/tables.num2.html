@@ -1,0 +1,101 @@
+<div class="module-wrapper clearfix">
+    <div class="wrapper-box">
+        <ul class="table-header">
+            <li class="table-cell t-p10">水分1号</li>
+            <li class="table-cell t-p10">水分2号</li>
+            <li class="table-cell t-p10">水分3号</li>
+            <li class="table-cell t-p10">水分4号</li>
+            <li class="table-cell t-p10">水分5号</li>
+            <li class="table-cell t-p10">水分6号</li>
+            <li class="table-cell t-p10">水分7号</li>
+            <li class="table-cell t-p10">水分8号</li>
+            <li class="table-cell">时间</li>
+        </ul>
+        <div class="table-content">
+            <table id="table1">
+                <tr class="table-row" ng-repeat="item in dataList.moisture">
+                    <td class="table-cell t-p10">{{:: item.s31  | limitTo: 4}}%</td>
+                    <td class="table-cell t-p10">{{:: item.s32  | limitTo: 4}}%</td>
+                    <td class="table-cell t-p10">{{:: item.s33  | limitTo: 4}}%</td>
+                    <td class="table-cell t-p10">{{:: item.s34  | limitTo: 4}}%</td>
+                    <td class="table-cell t-p10">{{:: item.s35  | limitTo: 4}}%</td>
+                    <td class="table-cell t-p10">{{:: item.s36  | limitTo: 4}}%</td>
+                    <td class="table-cell t-p10">{{:: item.s37  | limitTo: 4}}%</td>
+                    <td class="table-cell t-p10">{{:: item.s38  | limitTo: 4}}%</td>
+                    <td class="table-cell">{{:: item.time}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="wrapper-box">
+        <ul class="table-header">
+            <li class="table-cell t-p10">电压1号</li>
+            <li class="table-cell t-p10">电压2号</li>
+            <li class="table-cell t-p10">电压3号</li>
+            <li class="table-cell t-p10">电压4号</li>
+            <li class="table-cell t-p10">电压5号</li>
+            <li class="table-cell t-p10">电压6号</li>
+            <li class="table-cell t-p10">电压7号</li>
+            <li class="table-cell t-p10">电压8号</li>
+            <li class="table-cell">时间</li>
+        </ul>
+        <div class="table-content">
+            <table id="table2">
+                <tr class="table-row" ng-repeat="item in dataList.voltage">
+                    <td class="table-cell t-p10">{{:: item.s31  | limitTo: 4}}V</td>
+                    <td class="table-cell t-p10">{{:: item.s32  | limitTo: 4}}V</td>
+                    <td class="table-cell t-p10">{{:: item.s33  | limitTo: 4}}V</td>
+                    <td class="table-cell t-p10">{{:: item.s34  | limitTo: 4}}V</td>
+                    <td class="table-cell t-p10">{{:: item.s35  | limitTo: 4}}V</td>
+                    <td class="table-cell t-p10">{{:: item.s36  | limitTo: 4}}V</td>
+                    <td class="table-cell t-p10">{{:: item.s37  | limitTo: 4}}V</td>
+                    <td class="table-cell t-p10">{{:: item.s38  | limitTo: 4}}V</td>
+                    <td class="table-cell">{{:: item.time}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="module-wrapper clearfix">
+    <div class="wrapper-box">
+        <ul class="table-header">
+            <li class="table-cell t-p20">水表1号</li>
+            <li class="table-cell t-p20">水表2号</li>
+            <li class="table-cell t-p20">水表3号</li>
+            <li class="table-cell t-p20">水表4号</li>
+            <li class="table-cell">时间</li>
+        </ul>
+        <div class="table-content">
+            <ul class="table-row" ng-repeat="item in dataList.waterAmount">
+                <li class="table-cell t-p20">{{:: item.m31 | limitTo: 4}}</li>
+                <li class="table-cell t-p20">{{:: item.m32 | limitTo: 4}}</li>
+                <li class="table-cell t-p20">{{:: item.m33 | limitTo: 4}}</li>
+                <li class="table-cell t-p20"></li>
+                <li class="table-cell">{{:: item.time}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="wrapper-box">
+        <ul class="table-header">
+            <li class="table-cell t-p20">阀门1号</li>
+            <li class="table-cell t-p20">阀门2号</li>
+            <li class="table-cell t-p20">阀门3号</li>
+            <li class="table-cell t-p20">阀门4号</li>
+            <li class="table-cell">时间</li>
+        </ul>
+        <div class="table-content">
+            <table id="table4">
+                <tr class="table-row" ng-repeat="item in dataList.valve">
+                    <td class="table-cell t-p20">{{:: item.states1}}</td>
+                    <td class="table-cell t-p20">{{:: item.states2}}</td>
+                    <td class="table-cell t-p20">{{:: item.states3}}</td>
+                    <td class="table-cell t-p20">{{:: item.states4}}</td>
+                    <td class="table-cell">{{:: item.time}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+

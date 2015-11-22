@@ -1,0 +1,75 @@
+/**
+ * Created by XRene on 2015/10/31.
+ */
+.table-module .global-table {
+  overflow-y: auto;
+}
+.table-module .global-table .module-wrapper .wrapper-box {
+  border: 1px solid #e3e3e3;
+  position: relative;
+  height: 500px;
+}
+.table-module .global-table .module-wrapper .wrapper-box:first-child {
+  float: left;
+  width: 48.99999%;
+}
+.table-module .global-table .module-wrapper .wrapper-box:last-child {
+  float: right;
+  width: 48.99999%;
+}
+.table-module .global-table .module-wrapper .wrapper-box .table-content {
+  overflow-y: auto;
+}
+.table-module .global-table .module-wrapper .wrapper-box .table-content table {
+  width: 100%;
+}
+.table-module .select-item {
+  position: relative;
+  float: right;
+  padding: 0 10px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #69B7BC;
+  cursor: pointer;
+  height: 34px;
+  line-height: 34px;
+  margin-right: 10px;
+}
+.table-module .select-item .default-area {
+  position: relative;
+}
+.table-module .select-item .default-area .icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.table-module .select-item .dropdown-menu {
+  position: absolute;
+  background-color: #fffcee;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  display: none;
+  box-sizing: border-box;
+  z-index: 999;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+.table-module .select-item .dropdown-menu li {
+  font-size: 14px;
+  padding: 0 10px;
+  cursor: pointer;
+  line-height: 1.8;
+  color: #333;
+  font-weight: normal;
+}
+.table-module .select-item .dropdown-menu li:hover {
+  color: #49acea;
+}
+.table-module .select-checkItem {
+  text-align: center;
+  width: 90px;
+}
+.table-module .select-time {
+  text-align: center;
+  width: 65px;
+}

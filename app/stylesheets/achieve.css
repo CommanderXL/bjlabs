@@ -1,0 +1,237 @@
+/**
+ * Created by XRene on 2015/11/7.
+ */
+.achieve-section {
+  position: absolute;
+  left: 190px;
+  right: 190px;
+  top: 0;
+  bottom: 10px;
+}
+.achieve-section .section-title {
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+.achieve-section .section-content {
+  position: absolute;
+  top: 66px;
+  bottom: 0;
+  left: 0px;
+  right: 0px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  border-top: 2px dotted #f26a21;
+  border-bottom: 2px dotted #f26a21;
+}
+.achieve-section .section-content .section-item {
+  margin-bottom: 10px;
+  border: 1px solid #e3e3e3;
+}
+.achieve-section .section-content .section-item .item-pic {
+  cursor: pointer;
+  height: 1800px;
+  background-size: cover !important;
+}
+.achieve-section .section-content .section-item .paper-8-1 {
+  background: url("../images/papers/paper-8-1.png") no-repeat;
+}
+.achieve-section .section-content .section-item .paper-8-2 {
+  background: url("../images/papers/paper-8-1.png") no-repeat;
+}
+.achieve-section .section-content .section-item .paper-9 {
+  background: url("../images/papers/paper-9.png") no-repeat;
+}
+.achieve-section .section-content .section-item p {
+  text-align: center;
+}
+.academic-paper-show {
+  position: absolute;
+  top: 5px;
+  left: 199px;
+  right: 200px;
+  margin: 0 auto;
+  font-family: "Microsoft YaHei" ! important;
+  font-weight: 600;
+  font-size: 13px;
+  text-align: center;
+}
+.academic-paper-show .show-name {
+  text-align: left;
+}
+.academic-paper-show h3 {
+  color: #736F6F;
+  font-family: "Microsoft YaHei" ! important;
+  font-size: 25px;
+  padding: 29px 0px 10px;
+}
+.academic-paper-show table {
+  border: 1px solid #69B7BC;
+  width: 100%;
+}
+.academic-paper-show table th {
+  padding: 15px 20px;
+  background: #69B7BC;
+  color: white;
+}
+.academic-paper-show table td {
+  padding: 12px 12px;
+}
+.academic-paper-show table img {
+  width: 30px;
+  height: 30px;
+}
+.academic-paper-show table a {
+  text-decoration: none;
+  color: blue;
+}
+#message-one {
+  background-color: black;
+  opacity: 0.9;
+  position: fixed;
+  top: 50%;
+  margin-top: -141px;
+  left: 50%;
+  margin-left: -300px;
+  display: none;
+  color: #FFF8DC;
+  width: 600px;
+  border: 1px solid #69B7BC;
+  box-shadow: 0 0 5px #69B7BC;
+}
+#message-one h3 {
+  display: block;
+  float: left;
+  padding: 15px 20px;
+}
+#message-one p {
+  border-top: 1px solid;
+  line-height: 25px;
+  text-indent: 2em;
+  padding: 15px 20px;
+  clear: both;
+}
+#message-one img {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+#message-one img:hover {
+  opacity: 0.7;
+}
+#message-two {
+  background-color: black;
+  opacity: 0.9;
+  position: fixed;
+  top: 50%;
+  margin-top: -203.5px;
+  left: 50%;
+  margin-left: -300px;
+  display: none;
+  color: #FFF8DC;
+  width: 600px;
+  border: 1px solid #69B7BC;
+  box-shadow: 0 0 5px #69B7BC;
+}
+#message-two h3 {
+  display: block;
+  float: left;
+  padding: 15px 20px;
+}
+#message-two p {
+  border-top: 1px solid;
+  line-height: 25px;
+  text-indent: 2em;
+  padding: 15px 20px;
+  clear: both;
+}
+#message-two img {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+#message-two img:hover {
+  opacity: 0.7;
+}
+#message-three {
+  background-color: black;
+  opacity: 0.9;
+  position: fixed;
+  top: 50%;
+  margin-top: -128px;
+  left: 50%;
+  margin-left: -300px;
+  display: none;
+  color: #FFF8DC;
+  width: 600px;
+  border: 1px solid #69B7BC;
+  box-shadow: 0 0 5px #69B7BC;
+}
+#message-three h3 {
+  display: block;
+  float: left;
+  padding: 15px 20px;
+}
+#message-three p {
+  border-top: 1px solid;
+  line-height: 25px;
+  text-indent: 2em;
+  padding: 15px 20px;
+  clear: both;
+}
+#message-three img {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+#message-three img:hover {
+  opacity: 0.7;
+}
+#message-four {
+  background-color: black;
+  opacity: 0.9;
+  position: fixed;
+  top: 50%;
+  margin-top: -153.5px;
+  left: 50%;
+  margin-left: -300px;
+  display: none;
+  color: #FFF8DC;
+  width: 600px;
+  border: 1px solid #69B7BC;
+  box-shadow: 0 0 5px #69B7BC;
+}
+#message-four h3 {
+  display: block;
+  float: left;
+  padding: 15px 20px;
+}
+#message-four p {
+  border-top: 1px solid;
+  line-height: 25px;
+  text-indent: 2em;
+  padding: 15px 20px;
+  clear: both;
+}
+#message-four img {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+#message-four img:hover {
+  opacity: 0.7;
+}

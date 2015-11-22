@@ -1,0 +1,52 @@
+/**
+ * Created by XRene on 2015/11/18.
+ */
+.paper-section {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.paper-section h3 {
+  text-align: center;
+  color: #736F6F;
+  font-family: "Microsoft YaHei" ! important;
+  font-size: 25px;
+  padding: 29px 0px 10px;
+}
+.paper-section .rd-container {
+  position: absolute;
+  display: flex;
+  top: 72px;
+  bottom: 30px;
+  left: 200px;
+  right: 200px;
+  justify-content: space-between;
+}
+.paper-section .rd-container .rd-img {
+  border: 2px solid #69B7BC;
+  float: left;
+  padding: 1px;
+  width: 292px;
+}
+.paper-section .rd-container .rd-img p {
+  background: #69B7BC;
+  text-align: center;
+  color: #fff;
+  font-size: 15px;
+  padding: 10px;
+  font-family: "Microsoft YaHei" ! important;
+}
+.paper-section .rd-container .rd-img img {
+  width: 270px;
+  padding: 10px;
+  border: 1px solid #69B7BC;
+  margin: 0;
+}
+.paper-section .rd-container .rd-img .rd-introduce {
+  background: #F4F3ED;
+  color: #333;
+  text-align: left;
+  text-indent: 2em;
+}

@@ -1,0 +1,80 @@
+/**
+ * Created by XRene on 2015/10/31.
+ */
+.table-module {
+    .global-table {
+        overflow-y: auto;
+        .module-wrapper {
+            .wrapper-box {
+                border: 1px solid #e3e3e3;
+                position: relative;
+                height: 500px;
+                &:first-child {
+                    float: left;
+                    width: 48.99999%;
+                }
+                &:last-child {
+                    float: right;
+                    width: 48.99999%;
+                }
+                .table-content {
+                    overflow-y: auto;
+                    table {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    .select-item {
+        position: relative;
+        float: right;
+        padding: 0 10px;
+        font-size: 14px;
+        color: #fff;
+        background-color: #69B7BC;
+        cursor: pointer;
+        height: 34px;
+        line-height: 34px;
+        margin-right: 10px;
+        .default-area {
+            position: relative;
+            .icon {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+        }
+        .dropdown-menu {
+            position: absolute;
+            background-color: #fffcee;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            display: none;
+            box-sizing: border-box;
+            z-index: 999;
+            box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+            li {
+                font-size: 14px;
+                padding: 0 10px;
+                cursor: pointer;
+                line-height: 1.8;
+                color: #333;
+                font-weight: normal;
+
+                &:hover {
+                    color: #49acea;
+                }
+            }
+        }
+    }
+    .select-checkItem {
+        text-align: center;
+        width: 90px;
+    }
+    .select-time {
+        text-align: center;
+        width: 65px;
+    }
+}

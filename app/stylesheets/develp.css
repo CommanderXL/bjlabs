@@ -1,0 +1,93 @@
+/**
+ * Created by XRene on 2015/10/26.
+ */
+.develop-module {
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.develop-module .timeline-list {
+  padding-left: 220px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+}
+.develop-module .timeline-list:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  bottom: 0;
+  left: 175px;
+  width: 3px;
+  background: #e8eaed;
+}
+.develop-module .timeline-list .item {
+  position: relative;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #e8eaed;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+.develop-module .timeline-list .item:before {
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  border-width: 8px;
+  border-color: transparent #e8eaed transparent transparent;
+  border-style: dashed solid dashed dashed;
+  top: 10px;
+  left: -16px;
+}
+.develop-module .timeline-list .item:hover .time-icon {
+  transform: scale(1.5);
+  background: #265bc4;
+}
+.develop-module .timeline-list .item .time-icon {
+  position: absolute;
+  top: 11px;
+  left: -50px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #666;
+  transform-origin: 50% 50%;
+  transition: all .2s;
+}
+.develop-module .timeline-list .item .time-content {
+  position: absolute;
+  left: -170px;
+  top: 0;
+  padding: 8px 10px;
+  color: #18bc9c;
+  font-weight: bold;
+}
+.develop-module .timeline-list .item .time-detail {
+  margin-bottom: 5px;
+}
+.develop-module .timeline-list .item .label {
+  margin: 0 4px;
+  padding: 2px 4px;
+  font-size: 12px;
+  line-height: 1;
+  color: #fff;
+  border-radius: 3px;
+}
+.develop-module .timeline-list .item .label1 {
+  background-color: #6cbfee;
+}
+.develop-module .timeline-list .item .label2 {
+  background-color: #ff5f6e;
+}
+.develop-module .timeline-list .item .label3 {
+  background-color: #F0BB0E;
+}
+.develop-module-side {
+  left: 200px;
+  right: 200px;
+  bottom: 10px;
+  overflow-y: auto;
+}

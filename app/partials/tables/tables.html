@@ -1,0 +1,19 @@
+<div class="table-module" ng-controller="tableTotalCtrl">
+    <div class="table-model-tab" >
+        <a ui-sref="tables.num0({areaID: 0})" class="tab-row" ui-sref-active="tab-active"><span class="name">1号采集点</span></a>
+        <a ui-sref="tables.num1({areaID: 1})" class="tab-row" ui-sref-active="tab-active"><span class="name">2号采集点</span></a>
+        <a ui-sref="tables.num2({areaID: 2})" class="tab-row" ui-sref-active="tab-active"><span class="name">3号采集点</span></a>
+        <a ui-sref="tables.num3({areaID: 3})" class="tab-row" ui-sref-active="tab-active"><span class="name">4号采集点</span></a>
+        <down-load></down-load>
+        <div class="search-btn select-item" ng-click="getTableData()">搜索 <span class="icon icon-search"></span></div>
+        <div class="select-time select-item" base-droplist>
+            <div class="default-time">{{defaultTime}}<span class="icon icon-chevron-down"></span></div>
+            <ul class="dropdown-menu">
+                <li ng-repeat="(key, value) in timeList" ng-click="selectTime(key, value)">{{key}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="global-table" ui-view="tables">
+
+    </div>
+</div>

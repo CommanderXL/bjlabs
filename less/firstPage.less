@@ -1,0 +1,47 @@
+/**
+ * Created by XRene on 2015/11/13.
+ */
+.firstPage-container {
+    position: absolute;
+    left: 200px;
+    right: 200px;
+    top: 10px;
+    bottom: 10px;
+    box-sizing: border-box;
+    padding: 50px 20px;
+    .firstPage-content {
+        position: absolute;
+        top: 79px;
+        left: 137px;
+        right: 370px;
+        padding: 9px;
+        border: 2px solid #69B7BC;
+        color: #467A7D;
+        .content-box {
+            padding: 13px;
+            border: 2px solid #69B7BC;
+        }
+    }
+    .firstPage-imgs {
+        float: right;
+        width: 254px;
+        .img-box {
+            box-sizing: border-box;
+            padding: 10px;
+            height: 180px;
+            border: 2px solid #69B7BC;
+            &:nth-child(2) {
+                border-top: none;
+            }
+            &:last-child {
+                border-top: none;
+            }
+            img {
+                width: 226px;
+                height: 156px;
+            }
+        }
+    }
+}
+
+

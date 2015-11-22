@@ -1,0 +1,95 @@
+.achievement-show{
+    margin: 0 auto;
+    width: 980px;
+    font-family: "Microsoft YaHei" ! important;
+    font-weight: 600;
+    font-size: 13px;
+    text-align: center;
+}
+.achievement-show table{
+    border: 1px solid #69B7BC;
+    width: 100%;
+}
+.achievement-show thead th{
+    padding: 15px 20px;
+}
+.achievement-show tbody td{
+    padding: 12px 12px;
+}
+.achievement-show th{
+    background: #69B7BC;
+    color: white;
+}
+.achievement-show .show-name{
+    text-align: left;
+}
+.achievement-show a{
+    font-style: none;
+    text-decoration: none;
+}
+.achievement-show tbody img{
+    width: 30px;
+    height: 30px;
+}
+.message-one{
+    background-color: #666;
+    position: absolute;
+    top: 86px;
+    left: 476px;
+    display: none;
+    width: 600px;
+    border: 1px solid #69B7BC;
+    box-shadow: 0 0 5px #69B7BC;
+}
+.message-one h3{
+    border-bottom: 1px solid #69B7BC;
+    padding: 5px;
+    width: 598px;
+}
+.message-one p{
+
+}
+.public-show-footer {
+    position: absolute;
+    clear: both;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height:38px;
+    padding: 20px 0;
+    background-color: #467A7D;
+    opacity: .7;
+}
+.public-show-footer .footer-box {
+    display: flex;
+    width: 710px;
+    margin: 0 auto;
+    line-height: 0;
+    clear: both;
+}
+.public-show-footer .footer-box .footerItem {
+    flex: 1;
+    display: flex;
+    color: #fff;
+    border-right: 2px dashed #fff;
+    padding-left: 15px;
+}
+.public-show-footer .footer-box .footerItem:last-child {
+    border-right: none;
+}
+.public-show-footer .footer-box .footerItem img {
+    flex: none;
+    margin-right: 3px;
+}
+.public-show-footer .footer-box .footerItem .item-img-one {
+    width: 22px;
+    height: 36px;
+}
+.public-show-footer .footer-box .footerItem .item-img-two {
+    width: 39px;
+    height: 30px;
+}
+.public-show-footer .footer-box .footerItem .item-img-three {
+    width: 37px;
+    height: 35px;
+}

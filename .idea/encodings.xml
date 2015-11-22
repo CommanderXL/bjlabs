@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://F:/JSpractice/index.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Gruntfile.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/app.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/partials/controllers/chartOne_controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/partials/controllers/choose_controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/partials/controllers/display_controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/partials/controllers/table_T_controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/partials/directives/chartOne_directive.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/partials/directives/display_directive.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/partials/directives/downLoad_directive.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/partials/services/common_service.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/node/route/route.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/server.js" charset="UTF-8" />
+  </component>
+</project>

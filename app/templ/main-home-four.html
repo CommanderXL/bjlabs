@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生态环境营造</title>
+    <link rel="stylesheet" href="../stylesheets/font/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../stylesheets/reset.css"/>
+    <link rel="stylesheet" href="../stylesheets/common.css"/>
+    <link rel="stylesheet" href="../stylesheets/achieve.css"/>
+    <link rel="stylesheet" href="../stylesheets/firstPage.css"/>
+</head>
+<body>
+<div class="public-header-box">
+    <div class="public-header">
+        <h1>城乡生态环境北京实验室</h1>
+    </div>
+    <div class="public-show-nav">
+        <div class="show-model-tabs main-home">
+            <a class="tab-row " href="http://localhost:10003/main/index"><span class="name">首页</span></a>
+            <a class="tab-row" href="http://localhost:10003/main/one"><span class="name">生态网络安全构建</span></a>
+            <a class="tab-row" href="http://localhost:10003/main/two"><span class="name">植物材料选育</span></a>
+            <a class="tab-row" href="http://localhost:10003/main/three"><span class="name">高效繁殖与栽培</span></a>
+            <a class="tab-row achieve-btn tab-active" href="http://localhost:10003/main/four"><span class="name">生态环境营造</span></a>
+            <a class="tab-row" href="http://localhost:10003/main/five"><span class="name">生态环境监测与节水灌溉</span></a>
+        </div>
+    </div>
+    <div class="public-redit">北京林业大学工学院®</div>
+    <div class="firstPage-imgItem img-four"></div>
+    <div class="firstPage-imgItem img-five img-five-t"></div>
+    <div class="firstPage-imgItem img-six"></div>
+</div>
+<div class="public-show-box">
+    <div class="main-container clearfix">
+        <div class="main-content">
+            <h2>生态环境营造</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;研发雨水花园营造技术。研究适宜北京的城市雨水花园设计，施工营造和管理技术；研究绿地分流制雨水汇集、地下渗透和利用园林植物进行雨水生态过滤净化技术；研究雨水原话的植物选择与设计方案，发展节水型生态环境营造技术。</p>
+        </div>
+        <div class="img-box main-img-four"></div>
+    </div>
+    <div class="firstPage-imgItem img-one"></div>
+    <div class="firstPage-imgItem img-two"></div>
+    <div class="firstPage-footer">
+        <div class="footer-box">
+            <div class="footerItem">
+                <img src="../images/temp/icons/firstPage-icon-1.png" alt="" class="item-img-three"/>
+                <div>
+                    <p>联系邮箱:</p>
+                    <p>xxxx@gmail.com</p>
+                </div>
+            </div>
+            <div class="footerItem">
+                <img src="../images/temp/icons/firstPage-icon-2.png" alt="" class="item-img-two"/>
+                <div>
+                    <p>联系我们:</p>
+                    <p>18811725619</p>
+                </div>
+            </div>
+            <div class="footerItem">
+                <img src="../images/temp/icons/firstPage-icon-3.png" alt="" class="item-img-one"/>
+                <div>
+                    <p>北京市海淀区清华东路35号</p>
+                    <p>北京林业大学</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var btn = document.getElementsByClassName('achieve-btn')[0],
+            itemsBox = document.getElementsByClassName('achieve-items')[0],
+            url = 'http://localhost:63342/bjlabs/app/templ/';
+    btn.onclick = function (e) {
+        var e = window.event || e,
+                target = e.srcElement || e.target;
+        e.stopPropagation();
+        itemsBox.style.display = 'block';
+
+        if(target.nodeName.toLowerCase() === 'li'){
+            itemsBox.style.display = 'none';
+            switch (target.innerHTML){
+                case '学术论文':
+                    url = url + 'achieve.html';
+                    break;
+                case '专利':
+                    url = url + 'patent.html';
+                    break;
+                case '软件著作权':
+                    url = url + 'software.html';
+                    break;
+                default :
+                    break;
+            }
+            window.location = url;
+        }
+    }
+
+    window.onclick = function () {
+        itemsBox.style.display = 'none';
+    }
+</script>
+<!--<script src="../components/util/dropdown.js"></script>-->
+</body>
+</html>

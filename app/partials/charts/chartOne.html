@@ -1,0 +1,44 @@
+<div class="chart-container" ng-controller="chartOneCtrl">
+    <div class="chart-selected clearfix" >
+        <div class="select-area select-item" base-droplist>
+            <div class="default-area">{{selectedArea}} <span class="icon icon-chevron-down"></span></div>
+            <ul class="dropdown-menu">
+                <li ng-repeat="item in ['1号采集点', '2号采集点', '3号采集点']" ng-click="selectArea(item)">{{item}}</li>
+            </ul>
+        </div>
+        <div class="select-category select-item" base-droplist>
+            <div class="default-item">{{selectedItem}} <span class="icon icon-chevron-down"></span></div>
+            <ul class="dropdown-menu">
+                <li ng-repeat="item in ['水份', '电压', '水表']" ng-click="selectItem(item);">{{item}}</li>
+            </ul>
+        </div>
+        <div class="select-time select-item" base-droplist>
+            <div class="default-time">{{selectedTime}} <span class="icon icon-chevron-down"></span></div>
+            <ul class="dropdown-menu">
+                <li ng-repeat="item in ['3天', '5天', '7天', '15天']" ng-click="selectTime(item)">{{item}}</li>
+            </ul>
+        </div>
+        <div class="search-btn select-item" ng-click="searchData()">搜索 <span class="icon icon-search"></span></div>
+    </div>
+    <div class="panel-body" chart-one>
+
+    </div>
+    <div class="legend-show" ng-show="selectedItem !== '水表' && selectedArea === '1号采集点'">
+        <p><span class="legend-tips"></span>s11-s18分别代表1号采集点的1-8号传感器</p>
+    </div>
+    <div class="legend-show" ng-show="selectedItem !== '水表' && selectedArea === '2号采集点'">
+        <p><span class="legend-tips"></span>s21-s28分别代表2号采集点的1-8号传感器</p>
+    </div>
+    <div class="legend-show" ng-show="selectedItem !== '水表' && selectedArea === '3号采集点'">
+        <p><span class="legend-tips"></span>s31-s38分别代表1号采集点的1-8号传感器</p>
+    </div>
+    <div class="legend-show" ng-show="selectedItem === '水表' && selectedArea === '1号采集点'">
+        <p><span class="legend-tips"></span>m11-m14代表1号采集点的1-4号传感器</p>
+    </div>
+    <div class="legend-show" ng-show="selectedItem === '水表' && selectedArea === '2号采集点'">
+        <p><span class="legend-tips"></span>m21-m24代表2号采集点的1-4号传感器</p>
+    </div>
+    <div class="legend-show" ng-show="selectedItem === '水表' && selectedArea === '3号采集点'">
+        <p><span class="legend-tips"></span>m31-m34代表3号采集点的1-4号传感器</p>
+    </div>
+</div>

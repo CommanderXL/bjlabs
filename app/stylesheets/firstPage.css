@@ -1,0 +1,45 @@
+/**
+ * Created by XRene on 2015/11/13.
+ */
+.firstPage-container {
+  position: absolute;
+  left: 200px;
+  right: 200px;
+  top: 10px;
+  bottom: 10px;
+  box-sizing: border-box;
+  padding: 50px 20px;
+}
+.firstPage-container .firstPage-content {
+  position: absolute;
+  top: 79px;
+  left: 137px;
+  right: 370px;
+  padding: 9px;
+  border: 2px solid #69B7BC;
+  color: #467A7D;
+}
+.firstPage-container .firstPage-content .content-box {
+  padding: 13px;
+  border: 2px solid #69B7BC;
+}
+.firstPage-container .firstPage-imgs {
+  float: right;
+  width: 254px;
+}
+.firstPage-container .firstPage-imgs .img-box {
+  box-sizing: border-box;
+  padding: 10px;
+  height: 180px;
+  border: 2px solid #69B7BC;
+}
+.firstPage-container .firstPage-imgs .img-box:nth-child(2) {
+  border-top: none;
+}
+.firstPage-container .firstPage-imgs .img-box:last-child {
+  border-top: none;
+}
+.firstPage-container .firstPage-imgs .img-box img {
+  width: 226px;
+  height: 156px;
+}

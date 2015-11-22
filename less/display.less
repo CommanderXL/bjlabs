@@ -1,0 +1,173 @@
+.display-module {
+    padding: 10px;
+    /*.display-recentTime {
+        margin: 20px 0;
+        .time-tab {
+            padding: 0 7px;
+            border-radius: 8px;
+            background: #69B7BC;
+            color: #fff;
+        }
+    }*/
+    .display-select {
+        width: 97px;
+        text-align: center;
+    }
+    .area-select {
+        width: 120px;
+        text-align: center;
+    }
+    .select-item {
+        position: relative;
+        float: left;
+        padding: 0 10px;
+        font-size: 14px;
+        color: #fff;
+        background-color: #69B7BC;
+        cursor: pointer;
+        height: 34px;
+        line-height: 34px;
+        margin-right: 10px;
+        .default-area {
+            position: relative;
+            .icon {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            display: none;
+            box-sizing: border-box;
+            z-index: 999;
+            box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+            li {
+                font-size: 14px;
+                padding: 0 10px;
+                cursor: pointer;
+                line-height: 1.8;
+                color: #333;
+                font-weight: normal;
+                background: #fffcee;
+                &:hover {
+                    color: #49acea;
+                }
+            }
+        }
+    }
+    .display-container {
+        margin: 35px auto;
+        .container-box {
+            display: flex;
+            -webkit-display: flex;
+            margin-top: 20px;
+        }
+        .box {
+            flex: none;
+            width: 32.2222%;
+            justify-content: space-between;
+            margin-right: 10px;
+            .item-time {
+                border-bottom: 1px solid #e3e3e3;
+                border-left: 1px solid #e3e3e3;
+                border-right: 1px solid #e3e3e3;
+                text-align: center;
+                padding: 10px 3px;
+                font-size: 10px;
+            }
+            .item-header {
+                text-align: center;
+                background-color: #67b7cb;
+                color: #fff;
+                padding: 10px;
+                font-size: 20px;
+            }
+            .item-row {
+                display: table;
+                width: 100%;
+                border-bottom: 1px solid #e3e3e3;
+                .item {
+                    &:first-child {
+                        border-right: 1px solid #e3e3e3;
+                        border-left: 1px solid #e3e3e3;
+                    }
+                    &:last-child {
+                        border-right: 1px solid #e3e3e3;
+                    }
+                    height: 50px;
+                    vertical-align: middle;
+                    width: 50%;
+                    display: table-cell;
+                    text-align: center;
+                }
+            }
+            &:nth-child(3) {
+                .item {
+                    height: 39.4px;
+                }
+            }
+            &:last-child {
+                .item {
+                    height: 39.5px;
+                }
+            }
+        }
+    }
+}
+
+.display-legends {
+    position: absolute;
+    top: 500px;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    .legend-icon {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-right: 10px;
+        border-radius: 100%;
+        background-color: #00d6b2;
+    }
+    p {
+        line-height: 19px;
+        margin-bottom: 10px;
+    }
+}
+
+.display-valve {
+    position: absolute;
+    top: 90px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    .valve-container {
+        display: flex;
+        .valve-item {
+            flex: none;
+            width: 120px;
+            margin-right: 20px;
+            .item-header {
+                background-color: #49acea;
+                color: #fff;
+                padding: 10px;
+            }
+            .item-body {
+                border: 1px solid #e3e3e3;
+                li {
+                    box-sizing: border-box;
+                    padding: 10px;
+                    border-bottom: 1px solid #e3e3e3;
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+    }
+}
+

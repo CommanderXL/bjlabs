@@ -1,0 +1,764 @@
+<div class="control-module" ng-controller="chooseCtrl">
+
+    <div class="area-select select-item" base-droplist>
+        <div class="default-area">{{default.area}} <span class="icon icon-chevron-down"></span></div>
+        <ul class="dropdown-menu">
+            <li ng-repeat="(key, value) in areaList" ng-click="selectArea(key, value)">{{key}}</li>
+        </ul>
+    </div>
+    <div class="base-select">
+        <div class="module-side-title">基本参数</div>
+        <div class="time-module-read-side module-side">
+            <div class="table-cell module-btn" ng-click="timeGetFn()"><a href="javascript:void(0);">读取时间</a></div>
+            <div class="table-cell">
+                <input type="text" ng-model="getTime.year"/>年
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="getTime.month"/>月
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="getTime.day"/>日
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="getTime.hour"/>时
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="getTime.minutes"/>分
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="getTime.seconds"/>秒
+            </div>
+        </div>
+        <div class="time-module-set-side module-side">
+            <div class="table-cell module-btn" ng-click="timeSendFn()"><a href="javascript:void(0)">设置时间</a></div>
+            <div class="table-cell">
+                <input type="text" ng-model="setTime.year"/>年
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="setTime.month"/>月
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="setTime.day"/>日
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="setTime.hour"/>时
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="setTime.minutes"/>分
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="setTime.seconds"/>秒
+            </div>
+        </div>
+        <div class="valve-items-set module-side">
+            <div class="table-cell"></div>
+            <div class="table-cell" >1号阀门</div>
+            <div class="table-cell">2号阀门</div>
+            <div class="table-cell">3号阀门</div>
+            <div class="table-cell">4号阀门</div>
+        </div>
+        <div class="valve-module-side module-side">
+            <div class="table-cell module-btn" ng-click="switchCtrlFn()"><a href="">阀门操作</a></div>
+            <div class="table-cell">
+                <select ng-model="setValve.one">
+                    <option value="2"></option>
+                    <option value="1">开</option>
+                    <option value="0">关</option>
+                </select>
+            </div>
+            <div class="table-cell">
+                <select ng-model="setValve.two">
+                    <option value="2"></option>
+                    <option value="1">开</option>
+                    <option value="0">关</option>
+                </select>
+            </div>
+            <div class="table-cell">
+                <select ng-model="setValve.three">
+                    <option value="2"></option>
+                    <option value="1">开</option>
+                    <option value="0">关</option>
+                </select>
+            </div>
+            <div class="table-cell">
+                <select ng-model="setValve.four">
+                    <option value="2"></option>
+                    <option value="1">开</option>
+                    <option value="0">关</option>
+                </select>
+            </div>
+        </div>
+        <div class="valve-items-read module-side">
+            <div class="table-cell"></div>
+            <div class="table-cell">1号阀门</div>
+            <div class="table-cell">2号阀门</div>
+            <div class="table-cell">3号阀门</div>
+            <div class="table-cell">4号阀门</div>
+            <div class="table-cell">旋钮状态</div>
+            <div class="table-cell">打开开关</div>
+            <div class="table-cell">系统状态</div>
+            <div class="table-cell">校准开关</div>
+        </div>
+        <div class="valve-module-side module-side">
+            <div class="table-cell module-btn" ng-click="getStatus()"><a href="">读取阀门状态</a></div>
+            <div class="table-cell">
+                <input type="text" ng-model="getValve.one"/>
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="getValve.two"/>
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="getValve.three"/>
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="getValve.four"/>
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="getValve.switch"/>
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="getValve.open"/>
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="getValve.system"/>
+            </div>
+            <div class="table-cell">
+                <input type="text" ng-model="getValve.check"/>
+            </div>
+            <div class="table-cell cell-tips">
+                注:(1: 开, 0: 关)
+            </div>
+        </div>
+    </div>
+    <div class="params-select clearfix">
+        <div class="select-box">
+            <div class="module-side-title">传感器参数</div>
+            <div class="sensor-select-module module-side">
+                <div class="table-cell module-btn"><a href="">选择传感器</a></div>
+                <div class="table-cell">
+                    <select ng-model="sensorParams.num">
+                        <option value="0"></option>
+                        <option value="1">1号传感器</option>
+                        <option value="2">2号传感器</option>
+                        <option value="3">3号传感器</option>
+                        <option value="4">4号传感器</option>
+                    </select>
+                </div>
+            </div>
+            <div class="KB-state module-side">
+                <div class="table-cell"></div>
+                <div class="table-cell">K值</div>
+                <div class="table-cell">B值</div>
+            </div>
+            <div class="KB-read-module module-side">
+                <div class="table-cell module-btn" ng-click="getKB()"><a href="">读取KB值</a></div>
+                <div class="table-cell"><input type="text" ng-model="sensorParams.getK"/></div>
+                <div class="table-cell"><input type="text" ng-model="sensorParams.getB"/></div>
+            </div>
+            <div class="KB-state module-side">
+                <div class="table-cell"></div>
+                <div class="table-cell">K值</div>
+                <div class="table-cell">B值</div>
+            </div>
+            <div class="KB-set-module module-side">
+                <div class="table-cell module-btn" ng-click="setKB()"><a href="">设置KB值</a></div>
+                <div class="table-cell"><input type="text" ng-model="sensorParams.setK"/></div>
+                <div class="table-cell"><input type="text" ng-model="sensorParams.setB"/></div>
+            </div>
+            <div class="mv-state module-side">
+                <div class="table-cell"></div>
+                <div class="table-cell">水分1</div>
+                <div class="table-cell">水分2</div>
+                <div class="table-cell">水分3</div>
+                <div class="table-cell">水分4</div>
+            </div>
+            <div class="mv-read-module module-side">
+                <div class="table-cell module-btn" ng-click="readMoisture()"><a href="">读取水分</a></div>
+                <div class="table-cell"><input type="text" ng-model="sensorParams.getWaterOne"/></div>
+                <div class="table-cell"><input type="text" ng-model="sensorParams.getWaterTwo"/></div>
+                <div class="table-cell"><input type="text" ng-model="sensorParams.getWaterThree"/></div>
+                <div class="table-cell"><input type="text" ng-model="sensorParams.getWaterFour"/></div>
+                <!--<div class="table-cell"><input type="text" ng-model="sensorParams.getVoltage"/></div>-->
+            </div>
+            <div class="voltage-state module-side">
+                <div class="table-cell"></div>
+                <div class="table-cell">电压1</div>
+                <div class="table-cell">电压2</div>
+                <div class="table-cell">电压3</div>
+                <div class="table-cell">电压4</div>
+            </div>
+            <div class="voltage-read-module module-side">
+                <div class="table-cell module-btn" ng-click="readVoltage()"><a href="">读取电压</a></div>
+                <div class="table-cell"><input type="text" ng-model="sensorParams.getVoltageOne"/></div>
+                <div class="table-cell"><input type="text" ng-model="sensorParams.getVoltageTwo"/></div>
+                <div class="table-cell"><input type="text" ng-model="sensorParams.getVoltageThree"/></div>
+                <div class="table-cell"><input type="text" ng-model="sensorParams.getVoltageFour"/></div>
+                <!--<div class="table-cell"><input type="text" ng-model="sensorParams.getVoltage"/></div>-->
+            </div>
+        </div>
+        <div class="select-box">
+            <div class="module-side-title">阀门阈值</div>
+            <div class="valve-select-module module-side">
+                <div class="table-cell module-btn"><a href="">选择阀门</a></div>
+                <div class="table-cell">
+                    <select ng-model="limitParams.num">
+                        <option value="0"></option>
+                        <option value="1">1号阀门</option>
+                        <option value="2">2号阀门</option>
+                        <option value="3">3号阀门</option>
+                        <option value="4">4号阀门</option>
+                    </select>
+                </div>
+            </div>
+            <div class="valve-state module-side">
+                <div class="table-cell"></div>
+                <div class="table-cell">上限</div>
+                <div class="table-cell">下限</div>
+            </div>
+            <div class="valve-read-module module-side">
+                <div class="table-cell module-btn" ng-click="getTD()"><a href="">读取阀门上下限</a></div>
+                <div class="table-cell"><input type="text" ng-model="limitParams.getT"/></div>
+                <div class="table-cell"><input type="text" ng-model="limitParams.getD"/></div>
+            </div>
+            <div class="valve-state module-side">
+                <div class="table-cell"></div>
+                <div class="table-cell">上限</div>
+                <div class="table-cell">下限</div>
+            </div>
+            <div class="valve-set-module module-side">
+                <div class="table-cell module-btn" ng-click="setTD()"><a href="">设置阀门上下限</a></div>
+                <div class="table-cell"><input type="text" ng-model="limitParams.setT"/></div>
+                <div class="table-cell"><input type="text" ng-model="limitParams.setD"/></div>
+            </div>
+            <div class="water-select-module module-side">
+                <div class="table-cell module-btn"><a href="">选择水表</a></div>
+                <div class="table-cell">
+                    <select ng-model="waterParams.num">
+                        <option value="0"></option>
+                        <option value="1">1号水表</option>
+                        <option value="2">2号水表</option>
+                        <option value="3">3号水表</option>
+                        <option value="4">4号水表</option>
+                    </select>
+                </div>
+            </div>
+            <div class="water-state module-side">
+                <div class="table-cell"></div>
+                <div class="table-cell">水表1</div>
+                <div class="table-cell">水表2</div>
+                <div class="table-cell">水表3</div>
+                <div class="table-cell">水表4</div>
+            </div>
+            <div class="water-read-module module-side">
+                <div class="table-cell module-btn" ng-click="waterModuleReadFn()"><a href="">读取水表值</a></div>
+                <div class="table-cell"><input type="text" ng-model="waterParams.valueOne"/></div>
+                <div class="table-cell"><input type="text" ng-model="waterParams.valueTwo"/></div>
+                <div class="table-cell"><input type="text" ng-model="waterParams.valueThree"/></div>
+                <div class="table-cell"><input type="text" ng-model="waterParams.valueFour"/></div>
+            </div>
+        </div>
+        <!--<div class="select-box">
+            <div class="module-side-title">阀门水表值</div>
+            <div class="water-select-module module-side">
+                <div class="table-cell module-btn">选择水表</div>
+                <div class="table-cell">
+                    <select ng-model="waterParams.num">
+                        <option value="0"></option>
+                        <option value="1">1号水表</option>
+                        <option value="2">2号水表</option>
+                        <option value="3">3号水表</option>
+                        <option value="4">4号水表</option>
+                    </select>
+                </div>
+            </div>
+            <div class="water-read-module module-side">
+                <div class="table-cell module-btn" ng-click="waterModuleReadFn()">读取水表值</div>
+                <div class="table-cell"><input type="text" ng-model="waterParams.value"/></div>
+            </div>
+        </div>-->
+    </div>
+
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+<!--    <input type="text" ng-model="addressNum"/>
+    <div class="time-module">
+        <div class="public-module-title">时间</div>
+        <div class="time-module-item">
+            <input type="text" ng-model="get.year"/>年
+            <input type="text" ng-model="get.month"/>月
+            <input type="text" ng-model="get.day"/>日
+            <input type="text" ng-model="get.hour"/>时
+            <input type="text" ng-model="get.minute"/>分
+            <input type="text" ng-model="get.second"/>秒
+            <span class="switch-btn time-btn" >读取</span>
+        </div>
+        <div class="time-module-item">
+            <input type="text" ng-model="set.year"/>年
+            <input type="text" ng-model="set.month"/>月
+            <input type="text" ng-model="set.day"/>日
+            <input type="text" ng-model="set.hour"/>时
+            <input type="text" ng-model="set.minute"/>分
+            <input type="text" ng-model="set.second"/>秒
+            <span class="switch-btn set-btn" >设置</span>
+        </div>
+    </div>
+    <div class="KB-module">
+        <div class="public-module-title">KB值(读取)</div>
+        <div class="public-table">
+            <ul class="table-header">
+                <li class="item-f2-5">传感器编号</li>
+                <li class="item-f2-5">K</li>
+                <li class="item-f2-5">B</li>
+                <li class="item-f2-5">操作</li>
+            </ul>
+            <div class="table-content">
+                <ul class="table-item">
+                    <li class="item-f2-5">1号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="rk1"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="rb1"/></li>
+                    <li class="item-f2-5"><span class="table-btn">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">2号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="rk2"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="rb2"/></li>
+                    <li class="item-f2-5"><span class="table-btn">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">3号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="rk3"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="rb3"/></li>
+                    <li class="item-f2-5"><span class="table-btn">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">4号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="rk4"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="rb4"/></li>
+                    <li class="item-f2-5"><span class="table-btn">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">5号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="rk5"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="rb5"/></li>
+                    <li class="item-f2-5"><span class="table-btn">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">6号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="rk6"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="rb6"/></li>
+                    <li class="item-f2-5"><span class="table-btn">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">7号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="rk7"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="rb7"/></li>
+                    <li class="item-f2-5"><span class="table-btn">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">8号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="rk8"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="rb8"/></li>
+                    <li class="item-f2-5"><span class="table-btn">读取</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="KB-module">
+        <div class="public-module-title">KB值(设置)</div>
+        <div class="public-table">
+            <ul class="table-header">
+                <li class="item-f2-5">传感器编号</li>
+                <li class="item-f2-5">K</li>
+                <li class="item-f2-5">B</li>
+                <li class="item-f2-5">操作</li>
+            </ul>
+            <div class="table-content">
+                <ul class="table-item">
+                    <li class="item-f2-5">1号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="sk1"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="sb1"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="setKB(1)">设置</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">2号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="sk2"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="sb2"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="setKB(2)">设置</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">3号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="sk3"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="sb3"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="setKB(3)">设置</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">4号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="sk4"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="sb4"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="setKB(4)">设置</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">5号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="sk5"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="sb5"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="setKB(5)">设置</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">6号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="sk6"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="sb6"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="setKB(6)">设置</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">7号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="sk7"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="sb7"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="setKB(7)">设置</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">8号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="sk8"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="sb8"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="setKB(8)">设置</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="top-value-module-read">
+        <div class="public-module-title">灌溉阈值读取</div>
+        <div class="public-table">
+            <ul class="table-header">
+                <li class="item-f2-5">传感器</li>
+                <li class="item-f2-5">上限</li>
+                <li class="item-f2-5">下限</li>
+                <li class="item-f2-5">操作</li>
+            </ul>
+            <div class="table-content">
+                <ul class="table-item">
+                    <li class="item-f2-5">1号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="getTD(1)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">2号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="getTD(2)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">3号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="getTD(3)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">4号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="getTD(4)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">5号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="getTD(5)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">6号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="getTD(6)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">7号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="getTD(7)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">8号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="getTD(8)">读取</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="top-value-module-set">
+        <div class="public-module-title">灌溉阈值设置</div>
+        <div class="public-table">
+            <ul class="table-header">
+                <li class="item-f2-5">传感器</li>
+                <li class="item-f2-5">上限</li>
+                <li class="item-f2-5">下限</li>
+                <li class="item-f2-5">操作</li>
+            </ul>
+            <div class="table-content">
+                <ul class="table-item">
+                    <li class="item-f2-5">1号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="st1"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="sd1"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="setTD(1)">设置</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">2号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="st2"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="sd2"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="setTD(2)">设置</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">3号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="st3"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="sd3"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="setTD(3)">设置</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">4号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="st4"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="sd4"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="setTD(4)">设置</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">5号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="st5"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="sd5"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="setTD(5)">设置</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">6号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="st6"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="sd6"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="setTD(6)">设置</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">7号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="st7"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="sd7"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="setTD(7)">设置</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">8号</li>
+                    <li class="item-f2-5"><input type="text" ng-model="st8"/></li>
+                    <li class="item-f2-5"><input type="text" ng-model="sd8"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="setTD(8)">设置</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="switch-module">
+        <div class="public-module-title">阀门操作</div>
+        <div class="switch-module-item">
+            <span class="item-name">阀门一: </span>
+            <div class="switch-box">
+                <span class="switch-btn" ng-class="{true: 'switch-btn-active'}[valveOne.isOpen]" ng-click="valveOne.isOpen = true;switchValue[0] = 1;switchCtrlFn()">开</span>
+                <span class="switch-btn" ng-class="{true: 'switch-btn-active'}[!valveOne.isOpen]" ng-click="valveOne.isOpen = false;switchValue[0] = 0;switchCtrlFn()">关</span>
+            </div>
+        </div>
+        <div class="switch-module-item">
+            <span class="item-name">阀门二: </span>
+            <div class="switch-box">
+                <span class="switch-btn" ng-class="{true: 'switch-btn-active'}[valveTwo.isOpen]" ng-click="valveTwo.isOpen = true;switchValue[1] = 1;switchCtrlFn()">开</span>
+                <span class="switch-btn" ng-class="{true: 'switch-btn-active'}[!valveTwo.isOpen]" ng-click="valveTwo.isOpen = false;switchValue[1] = 0;switchCtrlFn()">关</span>
+            </div>
+        </div>
+        <div class="switch-module-item">
+            <span class="item-name">阀门三: </span>
+            <div class="switch-box">
+                <span class="switch-btn" ng-class="{true: 'switch-btn-active'}[valveThree.isOpen]" ng-click="valveThree.isOpen = true;switchValue[2] = 1;switchCtrlFn()">开</span>
+                <span class="switch-btn" ng-class="{true: 'switch-btn-active'}[!valveThree.isOpen]" ng-click="valveThree.isOpen = false;switchValue[2] = 0;switchCtrlFn()">关</span>
+            </div>
+        </div>
+        <div class="switch-module-item">
+            <span class="item-name">阀门四: </span>
+            <div class="switch-box">
+                <span class="switch-btn" ng-class="{true: 'switch-btn-active'}[valveFour.isOpen]" ng-click="valveFour.isOpen = true;switchValue[3] = 1;switchCtrlFn()">开</span>
+                <span class="switch-btn" ng-class="{true: 'switch-btn-active'}[!valveFour.isOpen]" ng-click="valveFour.isOpen = false;switchValue[3] = 0;switchCtrlFn()">关</span>
+            </div>
+        </div>
+    </div>
+    <div class="status-module">
+        <div class="public-module-title"  style="cursor: pointer">阀门状态</div>
+        <div class="status-module-item">
+            <span class="item-name">旋钮状态: </span>
+            <span ng-bind="status.knobSwitch"></span>
+        </div>
+        <div class="status-module-item">
+            <span class="item-name">打开开关: </span>
+            <span ng-bind="status.openSwitch"></span>
+        </div>
+        <div class="status-module-item">
+            <span class="item-name">系统状态: </span>
+            <span ng-bind="status.osSwitch"></span>
+        </div>
+        <div class="status-module-item">
+            <span class="item-name">校准开关: </span>
+            <span ng-bind="status.checkSwitch"></span>
+        </div>
+    </div>
+    <div class="moisture-module">
+        <div class="public-module-title">水分</div>
+        <div class="public-table">
+            <ul class="table-header">
+                <li class="item-f2-5">传感器编号</li>
+                <li class="item-f2-5">水分</li>
+                <li class="item-f2-5">操作</li>
+            </ul>
+            <div class="table-content">
+                <ul class="table-item">
+                    <li class="item-f2-5">1号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="readMoisture(1)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">2号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="readMoisture(2)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">3号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="readMoisture(3)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">4号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="readMoisture(4)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">5号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="readMoisture(5)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">6号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="readMoisture(6)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">7号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="readMoisture(7)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">8号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="readMoisture(8)">读取</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="voltage-module">
+        <div class="public-module-title">电压</div>
+        <div class="public-table">
+            <ul class="table-header">
+                <li class="item-f2-5">传感器编号</li>
+                <li class="item-f2-5">电压</li>
+                <li class="item-f2-5">操作</li>
+            </ul>
+            <div class="table-content">
+                <ul class="table-item">
+                    <li class="item-f2-5">1号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="readVoltage(1)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">2号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="readVoltage(2)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">3号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="readVoltage(3)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">4号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="readVoltage(4)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">5号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="readVoltage(5)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">6号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="readVoltage(6)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">7号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="readVoltage(7)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">8号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="readVoltage(8)">读取</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="water-module-read">
+        <div class="public-module-title">水表读取</div>
+        <div class="public-table">
+            <ul class="table-header">
+                <li class="item-f2-5">水表编号</li>
+                <li class="item-f2-5">水表值</li>
+                <li class="item-f2-5">操作</li>
+            </ul>
+            <div class="table-content">
+                <ul class="table-item">
+                    <li class="item-f2-5">1号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="waterModuleReadFn(1)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">2号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="waterModuleReadFn(2)">读取</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">3号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn" ng-click="waterModuleReadFn(3)">读取</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="water-module-set">
+        <div class="public-module-title">水表设置</div>
+        <div class="public-table">
+            <ul class="table-header">
+                <li class="item-f2-5">水表编号</li>
+                <li class="item-f2-5">水表值</li>
+                <li class="item-f2-5">操作</li>
+            </ul>
+            <div class="table-content">
+                <ul class="table-item">
+                    <li class="item-f2-5">1号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn">设置</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">2号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn">设置</span></li>
+                </ul>
+                <ul class="table-item">
+                    <li class="item-f2-5">3号</li>
+                    <li class="item-f2-5"><input type="text"/></li>
+                    <li class="item-f2-5"><span class="table-btn">设置</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>-->
+</div>

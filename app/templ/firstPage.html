@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="../stylesheets/font/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../stylesheets/reset.css"/>
+    <link rel="stylesheet" href="../stylesheets/common.css"/>
+    <link rel="stylesheet" href="../stylesheets/achieve.css"/>
+    <link rel="stylesheet" href="../stylesheets/firstPage.css"/>
+</head>
+<body>
+<div class="public-header-box">
+    <div class="public-header">
+        <h1>生态节水灌溉实验室</h1>
+    </div>
+    <div class="public-show-nav">
+        <div class="show-model-tabs">
+            <a class="tab-row tab-active" href="http://localhost:10003/firstPage"><span class="name">首页</span></a>
+            <a class="tab-row" href="http://localhost:10003/#/control"><span class="name">灌溉控制</span></a>
+            <a class="tab-row" href="http://123.57.12.101/bjlabsimage/jf.aspx"><span class="name">生态监测</span></a>
+            <!--<a class="tab-row" href="http://localhost:63342/bjlabs/app/templ/develop-side.html"><span class="name">工作进度</span></a>-->
+            <a class="tab-row achieve-btn">
+                <span class="name">成果展示</span>
+                <ul class="achieve-items">
+                    <li class="item">学术论文</li>
+                    <li class="item">实验基地</li>
+                    <li class="item">研发成果</li>
+                    <li class="item">专利</li>
+                    <li class="item">软件著作权</li>
+                </ul>
+            </a>
+            <a class="tab-row" href="http://localhost:10003/connect"><span class="name">联系我们</span></a>
+        </div>
+    </div>
+    <div class="public-redit">北京林业大学工学院®</div>
+    <div class="firstPage-imgItem img-four"></div>
+    <div class="firstPage-imgItem img-five"></div>
+    <div class="firstPage-imgItem img-six"></div>
+</div>
+<div class="public-show-box">
+    <div class="firstPage-container clearfix">
+        <div class="firstPage-content">
+            <div class="content-box">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;目前，城市园林绿化、人工林抚育灌溉在不考虑林木自身生理需水条件下，多采用大水漫灌、喷灌等工程灌溉模式，用水量非常大。以北京市为例，2013年北京全年水资源总量26.2亿立方米，比上年减少33.6%；而用水量为36.4亿立方米，比上年增长1.4%。其中生态环境用水5.9亿立方米，占全部水资源的16.2%。在水资源严重缺乏的同时，生态环境用水浪费严重。解决城市园林绿化节水灌溉中的关键技术迫在眉睫。</p>
+                <br/>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;结合气象因素，研发一种考虑多层土壤含水量、林木茎干含水量及其水分传输过程的多传感器融合林木耗水量灌溉系统，在分布式林木耗水量监测的基础上，构建林地耗水量尺度转换模型，建立实时林地耗水量空间分布图，以此作为林地节水灌溉的策略依据，研发精准节水灌溉控制设备及系统，为典型林地进行信息化节水林业示范做准备，与传统灌溉方法比较节水效果在30%以上。</p>
+            </div>
+        </div>
+        <div class="firstPage-imgs">
+            <div class="img-box">
+                <img src="../images/temp/u18.png" alt="土壤水分传感器"/>
+            </div>
+            <div class="img-box">
+                <img src="../images/temp/u20.png" alt="土壤水分传感器"/>
+            </div>
+        </div>
+    </div>
+    <div class="firstPage-imgItem img-one"></div>
+    <div class="firstPage-imgItem img-two"></div>
+    <!--<div class="firstPage-imgItem img-three"></div>-->
+    <div class="firstPage-footer">
+        <div class="footer-box">
+            <div class="footerItem">
+                <img src="../images/temp/icons/firstPage-icon-1.png" alt="" class="item-img-three"/>
+                <div>
+                    <p>联系邮箱:</p>
+                    <p>xxxx@gmail.com</p>
+                </div>
+            </div>
+            <div class="footerItem">
+                <img src="../images/temp/icons/firstPage-icon-2.png" alt="" class="item-img-two"/>
+                <div>
+                    <p>联系我们:</p>
+                    <p>18811725619</p>
+                </div>
+            </div>
+            <div class="footerItem">
+                <img src="../images/temp/icons/firstPage-icon-3.png" alt="" class="item-img-one"/>
+                <div>
+                    <p>北京市海淀区清华东路35号</p>
+                    <p>北京林业大学</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var btn = document.getElementsByClassName('achieve-btn')[0],
+            itemsBox = document.getElementsByClassName('achieve-items')[0],
+            url = 'http://localhost:10003/';
+    btn.onclick = function (e) {
+        var e = window.event || e,
+                target = e.srcElement || e.target;
+        e.stopPropagation();
+        itemsBox.style.display = 'block';
+
+        if(target.nodeName.toLowerCase() === 'li'){
+            itemsBox.style.display = 'none';
+            switch (target.innerHTML){
+                case '学术论文':
+                    url = url + 'achieve';
+                    break;
+                case '专利':
+                    url = url + 'patent';
+                    break;
+                case '软件著作权':
+                    url = url + 'software';
+                    break;
+                case '实验基地':
+                    return ;
+                case '研发成果':
+                    url = url + 'rd';
+                    break;
+                default :
+                    break;
+            }
+            window.location = url;
+        }
+    }
+
+    window.onclick = function () {
+        itemsBox.style.display = 'none';
+    }
+</script>
+<!--<script src="../components/util/dropdown.js"></script>-->
+</body>
+</html>

@@ -1,0 +1,99 @@
+/**
+ * Created by XRene on 2015/10/26.
+ */
+.develop-module {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    .timeline-list {
+        padding-left: 220px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            bottom: 0;
+            left: 175px;
+            width: 3px;
+            background: #e8eaed;
+        }
+
+        .item {
+            position: relative;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #e8eaed;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+            &:before {
+                position: absolute;
+                content: '';
+                height: 0;
+                width: 0;
+                border-width: 8px;
+                border-color: transparent #e8eaed transparent transparent;
+                border-style: dashed solid dashed dashed;
+                top: 10px;
+                left: -16px;
+            }
+            &:hover {
+                .time-icon {
+                    transform: scale(1.5);
+                    background: #265bc4;
+                }
+            }
+            .time-icon {
+                position: absolute;
+                top: 11px;
+                left: -50px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: #666;
+                transform-origin: 50% 50%;
+                transition: all .2s;
+            }
+            .time-content {
+                position: absolute;
+                left: -170px;
+                top: 0;
+                padding: 8px 10px;
+                color: #18bc9c;
+                font-weight: bold;
+            }
+            .time-detail {
+                margin-bottom: 5px;
+            }
+            .label {
+                margin: 0 4px;
+                padding: 2px 4px;
+                font-size: 12px;
+                line-height: 1;
+                color: #fff;
+                border-radius: 3px;
+            }
+            .label1 {
+                background-color: #6cbfee;
+            }
+            .label2 {
+                background-color: #ff5f6e;
+            }
+            .label3 {
+                background-color: #F0BB0E;
+            }
+        }
+    }
+}
+
+.develop-module-side {
+    left: 200px;
+    right: 200px;
+    bottom: 10px;
+    overflow-y: auto;
+}

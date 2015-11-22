@@ -1,0 +1,153 @@
+<div id="main">
+    <div class="outer">
+        <div class="inner"><img src="../../images/image1.png" height="271" width="230" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image2.png" height="271" width="230" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image3.png" height="165" width="230" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image4.png" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image5.png" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image6.png" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image7.png" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image8.png" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image9.png" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image10.png" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image11.png" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image12.png" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image13.png" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image14.png" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image15.png" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image16.png" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image17.png" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image18.png" alt=""></div>
+    </div>
+    <div class="outer">
+        <div class="inner"><img src="../../images/image19.png" alt=""></div>
+    </div>
+</div>
+<script>
+    var main = document.getElementById("main");
+    var boxes = document.getElementsByClassName("outer");
+    var boxWidth = boxes[0].offsetWidth;
+    var cols = Math.floor(main.clientWidth / boxWidth);
+
+    var datas = {
+        "data": [{
+            "src": "24.jpg"
+        }, {
+            "src": "25.jpg"
+        }, {
+            "src": "26.jpg"
+        }, {
+            "src": "27.jpg"
+        }]
+    };
+
+    waterFall();
+
+    window.onscroll = function () {
+        if (checkSlide()) {
+            for (var i = 0; i < datas.data.length; i++) {
+                var outerBox = document.createElement("div");
+                outerBox.className = "outer";
+                var innerBox = document.createElement("div");
+                innerBox.className = "inner";
+                var img = document.createElement("img");
+                img.src = "../images/" + datas.data[i].src;
+                innerBox.appendChild(img);
+                outerBox.appendChild(innerBox);
+                main.appendChild(outerBox);
+            }
+            waterFall();
+        }
+    };
+
+    function waterFall() {
+        main.style.cssText = "margin:0 auto;width:" + cols * boxWidth + "px";
+        var hArr = [];
+        var minH = null;
+        for (var i = 0; i < boxes.length; i++) {
+            if (i < cols) {
+                hArr.push(boxes[i].offsetHeight);
+            } else {
+                minH = Math.min.apply(null, hArr);
+                var index = getMinIndex(hArr, minH);
+                boxes[i].style.position = "absolute";
+                boxes[i].style.top = hArr[index] + "px";
+                boxes[i].style.left = index * boxWidth + "px";
+                hArr[index] += boxes[i].offsetHeight;
+            }
+        }
+
+        function getMinIndex(hArr, minH) {
+            for (var i in hArr) {
+                if (hArr[i] == minH) {
+                    return i;
+                }
+            }
+        }
+    }
+
+    function checkSlide() {
+        var lastImg = boxes[boxes.length - 1].offsetTop;
+        var halfHeight = Math.floor(boxes[boxes.length - 1].offsetHeight / 2);
+        var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+        var availHeight = document.body.clientHeight || document.documentElement.clientHeight;
+        var heightX = lastImg + halfHeight;
+        var heightY = scrollTop + availHeight;
+        if (heightY > heightX) {
+            return true;
+        }
+    }
+
+    main.onclick = function (e) {
+        e = e || window.event;
+        var target = e.srcElement || e.target;
+        if (target.nodeName.toLowerCase() == "img") {
+            var oParent = document.createElement("div");
+            oParent.style.cssText = "position:absolute;background:rgba(0,0,0,.6);width:100%;height:100%";
+            var oChild = document.createElement("div");
+            oChild.style.cssText = "transition:all .2s ease-in;position:absolute;left:50%;top:50%;padding:10px;width:300px;height:300px";
+            oChild.style.marginLeft = "-150px";
+            oChild.style.marginTop = -"-150px";
+            var img = document.createElement("img");
+            img.src = target.src;
+            oChild.appendChild(img);
+            oParent.appendChild(oChild);
+            main.appendChild(oParent);
+
+        }
+    };
+</script>
