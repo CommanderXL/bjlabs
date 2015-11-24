@@ -5,7 +5,11 @@ app.controller('chartOneCtrl', function ($scope, $_http, $_yaq) {
 
     $scope.results = null;
 
-
+    $scope.dataList = {
+        '一天': 1,
+        '一周': 7,
+        '一个月': 30
+    }
 
     $scope.selectedArea = '1号采集点';
     $scope.selectArea = function (item) {
@@ -15,22 +19,18 @@ app.controller('chartOneCtrl', function ($scope, $_http, $_yaq) {
     $scope.selectItem = function (item) {
         $scope.selectedItem = item;
     }
-    $scope.selectedTime = '3天';
-    $scope.selectTime = function (item) {
-        $scope.selectedTime = item;
+    $scope.selectedTime = '一天';
+    $scope.selectTimeVal = 1;
+    $scope.selectTime = function (time, val) {
+        $scope.selectedTime = time;
+        $scope.selectTimeVal = val;
     };
 
-    var param = {
-        start_time: $_yaq.timeToInit($_yaq.selectTimeFn(3)[0]),
-        end_time: $_yaq.timeToInit($_yaq.selectTimeFn(3)[1]),
-        area: $scope.selectedArea,
-        item: $scope.selectedItem
-    }
+    var param = {};
 
     $scope.searchData = function () {
-        var time_num = parseInt($scope.selectedTime);
-        param.start_time = $_yaq.timeToInit($_yaq.selectTimeFn(time_num)[0]);
-        param.end_time = $_yaq.timeToInit($_yaq.selectTimeFn(time_num)[1]);
+        param.start_time = $_yaq.timeToInit($_yaq.selectTimeFn($scope.selectTimeVal)[0]);
+        param.end_time = $_yaq.timeToInit($_yaq.selectTimeFn($scope.selectedTimeVal)[1]);
         param.area = $scope.selectedArea;
         param.item = $scope.selectedItem;
         $_http.reqPostFn('/chart', param).then(function (data) {

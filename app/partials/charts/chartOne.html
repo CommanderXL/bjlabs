@@ -15,7 +15,7 @@
         <div class="select-time select-item" base-droplist>
             <div class="default-time">{{selectedTime}} <span class="icon icon-chevron-down"></span></div>
             <ul class="dropdown-menu">
-                <li ng-repeat="item in ['3天', '5天', '7天', '15天']" ng-click="selectTime(item)">{{item}}</li>
+                <li ng-repeat="(key, val) in dataList" ng-click="selectTime(key, val)">{{key}}</li>
             </ul>
         </div>
         <div class="search-btn select-item" ng-click="searchData()">搜索 <span class="icon icon-search"></span></div>
