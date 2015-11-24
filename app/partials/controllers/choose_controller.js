@@ -29,60 +29,97 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
         system: '',
         check: ''
     }
+    $scope.flags = {
+        time: 0,
+        KB: 0,
+        TD: 0,
+        switch: 0,
+        status: 0,
+        moisture: 0,
+        voltage: 0,
+        water: 0
+    }
     $_socket.on('test', function (msg) {
         console.log(msg);
         switch (msg.key) {
             case 'time':
-                $scope.getTime.year = msg.data.year;
-                $scope.getTime.month = msg.data.month;
-                $scope.getTime.day = msg.data.day;
-                $scope.getTime.hour = msg.data.hour;
-                $scope.getTime.minutes = msg.data.minute;
-                $scope.getTime.seconds = msg.data.second;
+                if($scope.flags.time === 1){
+                    $scope.getTime.year = msg.data.year;
+                    $scope.getTime.month = msg.data.month;
+                    $scope.getTime.day = msg.data.day;
+                    $scope.getTime.hour = msg.data.hour;
+                    $scope.getTime.minutes = msg.data.minute;
+                    $scope.getTime.seconds = msg.data.second;
+                    $scope.flags.time = 0;
+                    alert('读取成功');
+                }
                 break;
             case 'KB':
-                $scope.sensorParams.getK = msg.kValue;
-                $scope.sensorParams.getB = msg.bValue;
+                if($scope.flags.KB === 1){
+                    $scope.sensorParams.getK = msg.kValue;
+                    $scope.sensorParams.getB = msg.bValue;
+                    $scope.flags.KB = 0;
+                    alert('读取成功');
+                }
                 break;
             case 'TD':
-                $scope.limitParams.getT = msg.tValue;
-                $scope.limitParams.getD = msg.dValue;
+                if($scope.flags.TD === 1){
+                    $scope.limitParams.getT = msg.tValue;
+                    $scope.limitParams.getD = msg.dValue;
+                    $scope.flags.TD = 0;
+                    alert('读取成功');
+                }
                 break;
             case 'switch':
                 console.log(msg);
                 break;
             case 'state':
-                $scope.getValve.one = msg.status[0];
-                $scope.getValve.two = msg.status[1];
-                $scope.getValve.three = msg.status[2];
-                $scope.getValve.four = msg.status[3];
-                $scope.getValve.switch = msg.status[4];
-                $scope.getValve.open = msg.status[5];
-                $scope.getValve.system = msg.status[6];
-                $scope.getValve.check = msg.status[7];
+                if($scope.flags.status === 1){
+                    $scope.getValve.one = msg.status[0];
+                    $scope.getValve.two = msg.status[1];
+                    $scope.getValve.three = msg.status[2];
+                    $scope.getValve.four = msg.status[3];
+                    $scope.getValve.switch = msg.status[4];
+                    $scope.getValve.open = msg.status[5];
+                    $scope.getValve.system = msg.status[6];
+                    $scope.getValve.check = msg.status[7];
+                    $scope.flags.status = 0;
+                    alert('读取成功');
+                }
                 break;
             case 'water':
-                $scope.sensorParams.getWaterOne = msg.moisture[0];
-                $scope.sensorParams.getWaterTwo = msg.moisture[1];
-                $scope.sensorParams.getWaterThree = msg.moisture[2];
-                $scope.sensorParams.getWaterFour = msg.moisture[3];
+                if($scope.flags.moisture === 1){
+                    $scope.sensorParams.getWaterOne = msg.moisture[0];
+                    $scope.sensorParams.getWaterTwo = msg.moisture[1];
+                    $scope.sensorParams.getWaterThree = msg.moisture[2];
+                    $scope.sensorParams.getWaterFour = msg.moisture[3];
+                    $scope.flags.moisture = 0;
+                    alert('读取成功');
+                }
                 break;
             case 'voltage':
-                $scope.sensorParams.getVoltageOne = msg.voltage[0];
-                $scope.sensorParams.getVoltageTwo = msg.voltage[1];
-                $scope.sensorParams.getVoltageThree = msg.voltage[2];
-                $scope.sensorParams.getVoltageFour = msg.voltage[3];
+                if($scope.flags.voltage === 1){
+                    $scope.sensorParams.getVoltageOne = msg.voltage[0];
+                    $scope.sensorParams.getVoltageTwo = msg.voltage[1];
+                    $scope.sensorParams.getVoltageThree = msg.voltage[2];
+                    $scope.sensorParams.getVoltageFour = msg.voltage[3];
+                    $scope.flags.voltage = 0;
+                    alert('读取成功');
+                }
                 break;
             case 'wateramount':
-                $scope.waterParams.valueOne = msg.water[0];
-                $scope.waterParams.valueTwo = msg.water[1];
-                $scope.waterParams.valueThree = msg.water[2];
-                $scope.waterParams.valueFour = msg.water[3];
+                if($scope.flags.water === 1){
+                    $scope.waterParams.valueOne = msg.water[0];
+                    $scope.waterParams.valueTwo = msg.water[1];
+                    $scope.waterParams.valueThree = msg.water[2];
+                    $scope.waterParams.valueFour = msg.water[3];
+                    $scope.flags.water = 0;
+                    alert('读取成功');
+                }
                 break;
             default :
                 break;
         }
-        alert('设置成功');
     })
 
     //设置时间
@@ -98,6 +135,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
             param.hour = $scope.setTime.hour;
             param.minute = $scope.setTime.minutes;
             param.second = $scope.setTime.minutes;
+        $scope.flags.time = 1;
         console.log(param);
         $_http.reqPostFn('/', param).then(function (data) {
             console.log(data);
@@ -154,6 +192,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
             addressNum: $scope.default.areaID,
             index: $scope.sensorParams.num
         };
+        $scope.flags.KB = 1;
         $_http.reqPostFn('/', param).then(function (data) {
             console.log(data);
         }, function (err) {
@@ -188,6 +227,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
             addressNum: $scope.default.areaID,
             index: $scope.limitParams.num
         };
+        $scope.flags.TD = 1;
         $_http.reqPostFn('/', param).then(function (data) {
             console.log(data);
         }, function (err) {
@@ -201,7 +241,8 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
             orderNum: 4,
             addressNum: $scope.default.areaID,
             switchValue: [$scope.setValve.one, $scope.setValve.two, $scope.setValve.three, $scope.setValve.four]
-        }
+        };
+        $scope.flags.switch = 1;
         $_http.reqPostFn('/', switchParam).then(function (data) {
             console.log(data);
         }, function (error) {
@@ -219,7 +260,8 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
         var switchParam = {
             orderNum: 5,
             addressNum: $scope.default.areaID
-        }
+        };
+        $scope.flags.status = 1;
         $_http.reqPostFn('/', switchParam).then(function (data) {
             console.log(data);
         }, function (err) {
@@ -233,6 +275,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
             addressNum: $scope.default.areaID,
             index: $scope.sensorParams.num
         };
+        $scope.flags.moisture = 1;
         console.log(param);
         $_http.reqPostFn('/', param).then(function (data) {
             console.log(data);
@@ -247,6 +290,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
             addressNum: $scope.default.areaID,
             index: $scope.sensorParams.num
         };
+        $scope.flags.voltage = 1;
         $_http.reqPostFn('/', param).then(function (data) {
             console.log(data);
         }, function (err) {
@@ -260,6 +304,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
             addressNum: $scope.default.areaID,
             index: $scope.waterParams.num
         };
+        $scope.flags.water = 1;
         $_http.reqPostFn('/', param).then(function (data) {
             console.log(data);
         }, function (err) {
