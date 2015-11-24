@@ -6,7 +6,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
     $scope.default = {
         area: '一号采集点',
         areaID: 1
-    }
+    };
     $scope.areaList = {
         '一号采集点': 1,
         '二号采集点': 2,
@@ -17,7 +17,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
     $scope.selectArea = function (key, value) {
         $scope.default.area = key;
         $scope.default.areaID = value;
-    }
+    };
     //阀门状态
     $scope.getValve = {
         one: '',
@@ -28,7 +28,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
         open: '',
         system: '',
         check: ''
-    }
+    };
     $scope.flags = {
         time: 0,
         KB: 0,
@@ -38,7 +38,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
         moisture: 0,
         voltage: 0,
         water: 0
-    }
+    };
     $_socket.on('test', function (msg) {
         console.log(msg);
         switch (msg.key) {
@@ -120,7 +120,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
             default :
                 break;
         }
-    })
+    });
 
     //设置时间
     $scope.timeSendFn = function () {
@@ -135,7 +135,6 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
             param.hour = $scope.setTime.hour;
             param.minute = $scope.setTime.minutes;
             param.second = $scope.setTime.minutes;
-        $scope.flags.time = 1;
         console.log(param);
         $_http.reqPostFn('/', param).then(function (data) {
             console.log(data);
@@ -158,6 +157,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
             operation: 'get',
             addressNum: $scope.default.areaID
         };
+        $scope.flags.time = 1;
         $_http.reqPostFn('/', param).then(function (data) {
             console.log(data);
         }, function (err) {
@@ -165,7 +165,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
         });
     };
     //设置KB值
-    $scope.setKB = function (index) {
+    $scope.setKB = function ( ) {
         var param = {
             orderNum: 2,
             operation: 'set',
@@ -185,7 +185,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
         getK: '',
         getB: ''
     };
-    $scope.getKB = function (index) {
+    $scope.getKB = function () {
         var param = {
             orderNum: 2,
             operation: 'get',
@@ -198,9 +198,9 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
         }, function (err) {
             console.log(err);
         })
-    }
+    };
     //设置阈值
-    $scope.setTD = function (index) {
+    $scope.setTD = function () {
         var param = {
             orderNum: 3,
             operation: 'set',
@@ -220,7 +220,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
         getT: '',
         getD: ''
     };
-    $scope.getTD = function (index) {
+    $scope.getTD = function () {
         var param = {
             orderNum: 3,
             operation: 'get',
@@ -267,9 +267,9 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
         }, function (err) {
             console.log(err);
         })
-    }
+    };
     //采集水分
-    $scope.readMoisture = function (index) {
+    $scope.readMoisture = function () {
         var param = {
             orderNum: 6,
             addressNum: $scope.default.areaID,
@@ -284,7 +284,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
         })
     };
     //采集电压
-    $scope.readVoltage = function (index) {
+    $scope.readVoltage = function () {
         var param = {
             orderNum: 7,
             addressNum: $scope.default.areaID,
@@ -298,7 +298,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
         })
     };
     //采集水表
-    $scope.waterModuleReadFn = function (index) {
+    $scope.waterModuleReadFn = function () {
         var param = {
             orderNum: 8,
             addressNum: $scope.default.areaID,

@@ -102,28 +102,28 @@
         <div class="valve-module-side module-side">
             <div class="table-cell module-btn" ng-click="getStatus()"><a href="">读取阀门状态</a></div>
             <div class="table-cell">
-                <input type="text" ng-model="getValve.one"/>
+                <input type="text" ng-model="getValve.one | changeToStatus"/>
             </div>
             <div class="table-cell">
-                <input type="text" ng-model="getValve.two"/>
+                <input type="text" ng-model="getValve.two | changeToStatus"/>
             </div>
             <div class="table-cell">
-                <input type="text" ng-model="getValve.three"/>
+                <input type="text" ng-model="getValve.three | changeToStatus"/>
             </div>
             <div class="table-cell">
-                <input type="text" ng-model="getValve.four"/>
+                <input type="text" ng-model="getValve.four | changeToStatus"/>
             </div>
             <div class="table-cell">
-                <input type="text" ng-model="getValve.switch"/>
+                <input type="text" ng-model="getValve.switch | changeToStatus"/>
             </div>
             <div class="table-cell">
-                <input type="text" ng-model="getValve.open"/>
+                <input type="text" ng-model="getValve.open | changeToStatus"/>
             </div>
             <div class="table-cell">
-                <input type="text" ng-model="getValve.system"/>
+                <input type="text" ng-model="getValve.system | changeToStatus"/>
             </div>
             <div class="table-cell">
-                <input type="text" ng-model="getValve.check"/>
+                <input type="text" ng-model="getValve.check | changeToStatus"/>
             </div>
             <div class="table-cell cell-tips">
                 注:(1: 开, 0: 关)

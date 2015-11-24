@@ -105,7 +105,7 @@ app.factory('$_yaq', ['$rootScope', '$stateParams', '$filter', function ($rootSc
                 return [0, _aDate];
 
         }
-    }
+    };
 
     return {
         timeToInit: _timeToInit,
@@ -113,3 +113,18 @@ app.factory('$_yaq', ['$rootScope', '$stateParams', '$filter', function ($rootSc
         selectTimeFn: _selectTimeFn
     }
 }]);
+
+app.filter('changeToStatus', function () {
+    return function (input) {
+        console.log(input);
+        if (input === 0){
+            return '关';
+        }
+        else if (input === 1) {
+            return '开';
+        }
+        else {
+            return '';
+        }
+    }
+});
