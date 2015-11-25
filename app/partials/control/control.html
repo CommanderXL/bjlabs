@@ -94,13 +94,13 @@
             <div class="table-cell">2号阀门</div>
             <div class="table-cell">3号阀门</div>
             <div class="table-cell">4号阀门</div>
-            <div class="table-cell">旋钮状态</div>
+            <!--<div class="table-cell">旋钮状态</div>
             <div class="table-cell">打开开关</div>
             <div class="table-cell">系统状态</div>
-            <div class="table-cell">校准开关</div>
+            <div class="table-cell">校准开关</div>-->
         </div>
         <div class="valve-module-side module-side">
-            <div class="table-cell module-btn" ng-click="getStatus()"><a href="">读取阀门状态</a></div>
+            <div class="table-cell module-btn" ng-click="getStatus()"><a href="">读取系统状态</a></div>
             <div class="table-cell">
                 <input type="text" ng-model="getValve.one | changeToStatus"/>
             </div>
@@ -113,7 +113,7 @@
             <div class="table-cell">
                 <input type="text" ng-model="getValve.four | changeToStatus"/>
             </div>
-            <div class="table-cell">
+            <!--<div class="table-cell">
                 <input type="text" ng-model="getValve.switch | changeToStatus"/>
             </div>
             <div class="table-cell">
@@ -127,7 +127,7 @@
             </div>
             <div class="table-cell cell-tips">
                 注:(1: 开, 0: 关)
-            </div>
+            </div>-->
         </div>
     </div>
     <div class="params-select clearfix">
@@ -167,32 +167,32 @@
             </div>
             <div class="mv-state module-side">
                 <div class="table-cell"></div>
-                <div class="table-cell">水分1</div>
-                <div class="table-cell">水分2</div>
+                <div class="table-cell">水分</div>
+                <!--<div class="table-cell">水分2</div>
                 <div class="table-cell">水分3</div>
-                <div class="table-cell">水分4</div>
+                <div class="table-cell">水分4</div>-->
             </div>
             <div class="mv-read-module module-side">
                 <div class="table-cell module-btn" ng-click="readMoisture()"><a href="">读取水分</a></div>
                 <div class="table-cell"><input type="text" ng-model="sensorParams.getWaterOne"/></div>
-                <div class="table-cell"><input type="text" ng-model="sensorParams.getWaterTwo"/></div>
+                <!--<div class="table-cell"><input type="text" ng-model="sensorParams.getWaterTwo"/></div>
                 <div class="table-cell"><input type="text" ng-model="sensorParams.getWaterThree"/></div>
-                <div class="table-cell"><input type="text" ng-model="sensorParams.getWaterFour"/></div>
+                <div class="table-cell"><input type="text" ng-model="sensorParams.getWaterFour"/></div>-->
                 <!--<div class="table-cell"><input type="text" ng-model="sensorParams.getVoltage"/></div>-->
             </div>
             <div class="voltage-state module-side">
                 <div class="table-cell"></div>
-                <div class="table-cell">电压1</div>
-                <div class="table-cell">电压2</div>
+                <div class="table-cell">电压</div>
+                <!--<div class="table-cell">电压2</div>
                 <div class="table-cell">电压3</div>
-                <div class="table-cell">电压4</div>
+                <div class="table-cell">电压4</div>-->
             </div>
             <div class="voltage-read-module module-side">
                 <div class="table-cell module-btn" ng-click="readVoltage()"><a href="">读取电压</a></div>
                 <div class="table-cell"><input type="text" ng-model="sensorParams.getVoltageOne"/></div>
-                <div class="table-cell"><input type="text" ng-model="sensorParams.getVoltageTwo"/></div>
+                <!--<div class="table-cell"><input type="text" ng-model="sensorParams.getVoltageTwo"/></div>
                 <div class="table-cell"><input type="text" ng-model="sensorParams.getVoltageThree"/></div>
-                <div class="table-cell"><input type="text" ng-model="sensorParams.getVoltageFour"/></div>
+                <div class="table-cell"><input type="text" ng-model="sensorParams.getVoltageFour"/></div>-->
                 <!--<div class="table-cell"><input type="text" ng-model="sensorParams.getVoltage"/></div>-->
             </div>
         </div>
@@ -244,17 +244,17 @@
             </div>
             <div class="water-state module-side">
                 <div class="table-cell"></div>
-                <div class="table-cell">水表1</div>
-                <div class="table-cell">水表2</div>
+                <div class="table-cell">水表</div>
+                <!--<div class="table-cell">水表2</div>
                 <div class="table-cell">水表3</div>
-                <div class="table-cell">水表4</div>
+                <div class="table-cell">水表4</div>-->
             </div>
             <div class="water-read-module module-side">
                 <div class="table-cell module-btn" ng-click="waterModuleReadFn()"><a href="">读取水表值</a></div>
                 <div class="table-cell"><input type="text" ng-model="waterParams.valueOne"/></div>
-                <div class="table-cell"><input type="text" ng-model="waterParams.valueTwo"/></div>
+                <!--<div class="table-cell"><input type="text" ng-model="waterParams.valueTwo"/></div>
                 <div class="table-cell"><input type="text" ng-model="waterParams.valueThree"/></div>
-                <div class="table-cell"><input type="text" ng-model="waterParams.valueFour"/></div>
+                <div class="table-cell"><input type="text" ng-model="waterParams.valueFour"/></div>-->
             </div>
         </div>
         <!--<div class="select-box">

@@ -71,6 +71,10 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
                 }
                 break;
             case 'switch':
+                if($scope.flags.switch === 1) {
+                    alert('设置成功');
+                    $scope.flags.switch = 0;
+                }
                 console.log(msg);
                 break;
             case 'state':
@@ -89,30 +93,30 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
                 break;
             case 'water':
                 if($scope.flags.moisture === 1){
-                    $scope.sensorParams.getWaterOne = msg.moisture[0];
-                    $scope.sensorParams.getWaterTwo = msg.moisture[1];
+                    $scope.sensorParams.getWaterOne = msg.moisture + '%';
+                    /*$scope.sensorParams.getWaterTwo = msg.moisture[1];
                     $scope.sensorParams.getWaterThree = msg.moisture[2];
-                    $scope.sensorParams.getWaterFour = msg.moisture[3];
+                    $scope.sensorParams.getWaterFour = msg.moisture[3];*/
                     $scope.flags.moisture = 0;
                     alert('读取成功');
                 }
                 break;
             case 'voltage':
                 if($scope.flags.voltage === 1){
-                    $scope.sensorParams.getVoltageOne = msg.voltage[0];
-                    $scope.sensorParams.getVoltageTwo = msg.voltage[1];
+                    $scope.sensorParams.getVoltageOne = msg.voltage + 'V';
+                    /*$scope.sensorParams.getVoltageTwo = msg.voltage[1];
                     $scope.sensorParams.getVoltageThree = msg.voltage[2];
-                    $scope.sensorParams.getVoltageFour = msg.voltage[3];
+                    $scope.sensorParams.getVoltageFour = msg.voltage[3];*/
                     $scope.flags.voltage = 0;
                     alert('读取成功');
                 }
                 break;
             case 'wateramount':
                 if($scope.flags.water === 1){
-                    $scope.waterParams.valueOne = msg.water[0];
-                    $scope.waterParams.valueTwo = msg.water[1];
+                    $scope.waterParams.valueOne = msg.water;
+                    /*$scope.waterParams.valueTwo = msg.water[1];
                     $scope.waterParams.valueThree = msg.water[2];
-                    $scope.waterParams.valueFour = msg.water[3];
+                    $scope.waterParams.valueFour = msg.water[3];*/
                     $scope.flags.water = 0;
                     alert('读取成功');
                 }
@@ -235,7 +239,6 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
         })
     };
     //开关控制
-    //$scope.switchValue = [0, 0, 0, 0];
     $scope.switchCtrlFn = function () {
         var switchParam = {
             orderNum: 4,

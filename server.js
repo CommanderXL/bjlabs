@@ -519,27 +519,30 @@ if(cluster.isMaster){
                     }
                     break;
                 case 6:
+                    var _moisture = hex_to_hexString(new Buffer([data[6], data[7], data[8], data[9]]));
                     sendData = {
                         address: address,
                         key: 'water',
                         index: data[5],
-                        moisture: [data[6], data[7], data[8], data[9]]
+                        moisture: union_to_float(_moisture)
                     }
                     break;
                 case 7:
+                    var _voltage = hex_to_hexString(new Buffer([data[6], data[7], data[8], data[9]]));
                     sendData = {
                         address: address,
                         key: 'voltage',
                         index: data[5],
-                        voltage: [data[6], data[7], data[8], data[9]]
+                        voltage: union_to_float(_voltage)
                     }
                     break;
                 case 8:
+                    var _water = hex_to_hexString(new Buffer([data[6], data[7], data[8], data[9]]));
                     sendData = {
                         address: address,
                         key: 'wateramount',
                         index: data[5],
-                        water: [data[6], data[7], data[8], data[9]]
+                        water: union_to_float(_water)
                     }
                     break;
                 case 9:
