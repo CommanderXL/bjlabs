@@ -53,6 +53,10 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
                     $scope.flags.time = 0;
                     alert('读取成功');
                 }
+                else if ($scope.flags.time === 2) {
+                    $scope.flags.time = 0;
+                    alert('设置成功');
+                }
                 break;
             case 'KB':
                 if($scope.flags.KB === 1){
@@ -61,6 +65,10 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
                     $scope.flags.KB = 0;
                     alert('读取成功');
                 }
+                else if ($scope.flags.KB === 2){
+                    $scope.flags.KB = 0;
+                    alert('设置成功');
+                }
                 break;
             case 'TD':
                 if($scope.flags.TD === 1){
@@ -68,6 +76,9 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
                     $scope.limitParams.getD = msg.dValue;
                     $scope.flags.TD = 0;
                     alert('读取成功');
+                }
+                else if($scope.flags.TD === 2){
+                    alert('设置成功');
                 }
                 break;
             case 'switch':
@@ -94,9 +105,6 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
             case 'water':
                 if($scope.flags.moisture === 1){
                     $scope.sensorParams.getWaterOne = msg.moisture + '%';
-                    /*$scope.sensorParams.getWaterTwo = msg.moisture[1];
-                    $scope.sensorParams.getWaterThree = msg.moisture[2];
-                    $scope.sensorParams.getWaterFour = msg.moisture[3];*/
                     $scope.flags.moisture = 0;
                     alert('读取成功');
                 }
@@ -104,9 +112,6 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
             case 'voltage':
                 if($scope.flags.voltage === 1){
                     $scope.sensorParams.getVoltageOne = msg.voltage + 'V';
-                    /*$scope.sensorParams.getVoltageTwo = msg.voltage[1];
-                    $scope.sensorParams.getVoltageThree = msg.voltage[2];
-                    $scope.sensorParams.getVoltageFour = msg.voltage[3];*/
                     $scope.flags.voltage = 0;
                     alert('读取成功');
                 }
@@ -114,9 +119,6 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
             case 'wateramount':
                 if($scope.flags.water === 1){
                     $scope.waterParams.valueOne = msg.water;
-                    /*$scope.waterParams.valueTwo = msg.water[1];
-                    $scope.waterParams.valueThree = msg.water[2];
-                    $scope.waterParams.valueFour = msg.water[3];*/
                     $scope.flags.water = 0;
                     alert('读取成功');
                 }
@@ -139,6 +141,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
             param.hour = $scope.setTime.hour;
             param.minute = $scope.setTime.minutes;
             param.second = $scope.setTime.minutes;
+        $scope.flags.time = 2;
         console.log(param);
         $_http.reqPostFn('/', param).then(function (data) {
             console.log(data);
@@ -178,6 +181,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
             kValue: $scope.sensorParams.setK,
             bValue: $scope.sensorParams.setB
         };
+        $scope.flags.KB = 2;
         $_http.reqPostFn('/', param).then(function (data) {
             console.log(data);
         }, function (err) {
@@ -213,6 +217,7 @@ app.controller('chooseCtrl', function ($rootScope, $scope, $_http, $_socket) {
             tValue: $scope.limitParams.getT,
             dValue: $scope.limitParams.getD
         };
+        $scope.flags.TD = 2;
         $_http.reqPostFn('/', param).then(function (data) {
             console.log(data);
         }, function (err) {
